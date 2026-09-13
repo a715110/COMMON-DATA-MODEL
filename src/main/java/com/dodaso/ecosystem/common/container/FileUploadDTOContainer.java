@@ -1,7 +1,8 @@
 package com.dodaso.ecosystem.common.container;
 
 import com.dodaso.ecosystem.baseline.common.container.DataContainer;
-import com.dodaso.ecosystem.common.dto.FileUploadDTO;
+import com.dodaso.ecosystem.common.dto.FileUploadRequestDTO;
+
 import java.util.List;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -18,8 +19,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @EqualsAndHashCode(callSuper = false)
-public class FileUploadDTOContainer extends DataContainer<FileUploadDTO> {
-
-  FileUploadDTO fileUploadDTO;
-  List<FileUploadDTO> fileUploadDTOList;
+public class FileUploadDTOContainer extends DataContainer<FileUploadRequestDTO> {
+  List<FileUploadRequestDTO> fileUploadRequestDTOList;
+  FileUploadRequestDTO fileUploadRequestDTO;
 }
