@@ -1,0 +1,12 @@
+C:\development\01-ADEV-DATA-MODEL-PROJECT\ADEV-COMMON-DATA-MODEL\src\main\java\com\dodaso\ecosystem\common\container\FileThumbnailDTOContainer.java
+C:\development\01-ADEV-DATA-MODEL-PROJECT\ADEV-COMMON-DATA-MODEL\src\main\java\com\dodaso\ecosystem\common\container\FileUploadDTOContainer.java
+C:\development\01-ADEV-DATA-MODEL-PROJECT\ADEV-COMMON-DATA-MODEL\src\main\java\com\dodaso\ecosystem\common\container\LkpThumbnailStatusDTOContainer.java
+C:\development\01-ADEV-DATA-MODEL-PROJECT\ADEV-COMMON-DATA-MODEL\src\main\java\com\dodaso\ecosystem\common\dto\FileThumbnailDTO.java
+C:\development\01-ADEV-DATA-MODEL-PROJECT\ADEV-COMMON-DATA-MODEL\src\main\java\com\dodaso\ecosystem\common\dto\FileUploadDTO.java
+C:\development\01-ADEV-DATA-MODEL-PROJECT\ADEV-COMMON-DATA-MODEL\src\main\java\com\dodaso\ecosystem\common\dto\LkpThumbnailStatusDTO.java
+C:\development\01-ADEV-DATA-MODEL-PROJECT\ADEV-COMMON-DATA-MODEL\src\main\java\com\dodaso\ecosystem\common\entity\FileThumbnail.java
+C:\development\01-ADEV-DATA-MODEL-PROJECT\ADEV-COMMON-DATA-MODEL\src\main\java\com\dodaso\ecosystem\common\entity\FileUpload.java
+C:\development\01-ADEV-DATA-MODEL-PROJECT\ADEV-COMMON-DATA-MODEL\src\main\java\com\dodaso\ecosystem\common\entity\LkpThumbnailStatus.java
+C:\development\01-ADEV-DATA-MODEL-PROJECT\ADEV-COMMON-DATA-MODEL\src\main\java\com\dodaso\ecosystem\common\repository\FileThumbnailRepository.java
+C:\development\01-ADEV-DATA-MODEL-PROJECT\ADEV-COMMON-DATA-MODEL\src\main\java\com\dodaso\ecosystem\common\repository\FileUploadRepository.java
+C:\development\01-ADEV-DATA-MODEL-PROJECT\ADEV-COMMON-DATA-MODEL\src\main\java\com\dodaso\ecosystem\common\repository\LkpThumbnailStatusRepository.java
