@@ -1,6 +1,7 @@
 package com.dodaso.ecosystem.common.container;
 
 import com.dodaso.ecosystem.baseline.common.container.DataContainer;
+import com.dodaso.ecosystem.common.dto.FileUploadDTO;
 import com.dodaso.ecosystem.common.dto.FileUploadRequestDTO;
 
 import java.util.List;
@@ -22,4 +23,5 @@ import lombok.ToString;
 public class FileUploadDTOContainer extends DataContainer<FileUploadRequestDTO> {
   List<FileUploadRequestDTO> fileUploadRequestDTOList;
   FileUploadRequestDTO fileUploadRequestDTO;
+  List<FileUploadDTO> fileUploadDTOList;
 }

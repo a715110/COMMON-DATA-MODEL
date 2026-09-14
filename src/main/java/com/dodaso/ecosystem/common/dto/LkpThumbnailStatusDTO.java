@@ -22,7 +22,8 @@ public class LkpThumbnailStatusDTO extends BaseDTO implements Serializable {
   @Serial
   private static final long serialVersionUID = 1L;
 
-  private Long id;
+  // id is inherited from BaseDTO -- see FileUploadDTO for why the
+  // redeclaration that used to be here was removed.
 
   private String code;
   private String label;

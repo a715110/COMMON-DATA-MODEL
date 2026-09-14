@@ -27,6 +27,7 @@ public class FileUploadRequestDTO extends BaseDTO implements Serializable {
     private String sourceApp;
     private String ownerType;
     private Long ownerId;
+    private Long companyId;
     /** Optional -- falls back to azure.storage.default-container-name on
      * the common-service side if omitted. */
     private String containerName;

@@ -5,6 +5,9 @@ import java.time.LocalDateTime;
 import java.io.Serializable;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 /**
  * Maps to common.file_upload -- generated from the authoritative
@@ -19,9 +22,18 @@ import lombok.Setter;
  * created_at/updated_at are insertable=false, updatable=false -- the
  * database's own DEFAULT/ON UPDATE CURRENT_TIMESTAMP owns those values,
  * not the application.
+ *
+ * @EntityListeners/@CreatedBy/@LastModifiedBy added here (not present in
+ * the original generated version) so createdBy/updatedBy are actually
+ * populated by the auditing infrastructure that already exists
+ * service-wide (JpaAuditingConfig + HeaderBasedAuditorAware, reading the
+ * X-User-Context/X-Remote-User request header) -- without these, that
+ * infrastructure has nothing to act on and both columns would silently
+ * stay null on every insert/update.
  */
 @Entity
 @Table(name = "file_upload")
+@EntityListeners(AuditingEntityListener.class)
 @Getter
 @Setter
 public class FileUpload implements Serializable {
@@ -39,6 +51,12 @@ public class FileUpload implements Serializable {
 
     @Column(name = "owner_id", nullable = false)
     private Long ownerId;
+
+    // Multi-tenant scalar, same unenforced-reference treatment as
+    // ownerType/ownerId -- points back to wherever the company/tenant
+    // master record actually lives, no FK possible across schemas.
+    @Column(name = "company_id", nullable = false)
+    private Long companyId;
 
     @Column(name = "file_name", nullable = false, length = 255)
     private String fileName;
@@ -64,12 +82,14 @@ public class FileUpload implements Serializable {
     @Column(name = "active_ind", nullable = false)
     private Boolean activeInd;
 
+    @CreatedBy
     @Column(name = "created_by", nullable = false, length = 255)
     private String createdBy;
 
     @Column(name = "created_at", nullable = false, insertable = false, updatable = false)
     private LocalDateTime createdAt;
 
+    @LastModifiedBy
     @Column(name = "updated_by", length = 255)
     private String updatedBy;
 
