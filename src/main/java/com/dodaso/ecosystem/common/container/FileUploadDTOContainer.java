@@ -1,18 +1,22 @@
 package com.dodaso.ecosystem.common.container;
 
+import java.util.List;
+import java.util.Set;
+
 import com.dodaso.ecosystem.baseline.common.container.DataContainer;
 import com.dodaso.ecosystem.common.dto.FileUploadDTO;
 import com.dodaso.ecosystem.common.dto.FileUploadRequestDTO;
 
-import java.util.List;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
 /**
- * DataContainer for FileUploadDTO. Carries a single FileUploadDTO for single-record
- * create/read/update/delete operations, and a FileUploadDTO list for list/search
+ * DataContainer for FileUploadDTO. Carries a single FileUploadDTO for
+ * single-record
+ * create/read/update/delete operations, and a FileUploadDTO list for
+ * list/search
  * operations, following the ecws-data-model / elcm-data-model container
  * convention.
  */
@@ -21,7 +25,10 @@ import lombok.ToString;
 @Setter
 @EqualsAndHashCode(callSuper = false)
 public class FileUploadDTOContainer extends DataContainer<FileUploadRequestDTO> {
-  List<FileUploadRequestDTO> fileUploadRequestDTOList;
+  //List<FileUploadRequestDTO> fileUploadRequestDTOList;
   FileUploadRequestDTO fileUploadRequestDTO;
   List<FileUploadDTO> fileUploadDTOList;
+
+  FileUploadDTO fileUploadDTO;
+  Set<Long> fileUploadIds;
 }

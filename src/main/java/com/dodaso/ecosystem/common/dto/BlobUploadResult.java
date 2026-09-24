@@ -3,18 +3,12 @@ package com.dodaso.ecosystem.common.dto;
 import java.io.Serializable;
 
 /**
- * Internal-to-common-service result of pushing one file's bytes to Azure --
- * NOT the public contract. FileUploadService consumes this and maps it,
- * together with caller-supplied ownership info (sourceApp/ownerType/
- * ownerId), into a persisted FileUpload row / FileUploadDTO -- the actual
- * shape callers like elcm-service see.
+ * What FileUploadDownloadHandler.uploadFiles() hands back per file once
+ * the blob is written: enough to build (and later re-derive) the
+ * FileUpload row without re-touching Azure. fileName is the ORIGINAL
+ * file name as supplied by the caller, not the generated blobName.
  */
-public record BlobUploadResult(
-    String originalFileName,
-    String blobName,       // path/key within the container, e.g. "2026/09/12/<uuid>__file.pdf"
-    String containerName,
-    String url,             // full https blob URL
-    long sizeBytes,
-    String contentType
-) implements Serializable {
+public record BlobUploadResult(String fileName, String blobPath, String blobContainer, String blobUrl,
+                                long fileSize, String contentType) {
 }
+
