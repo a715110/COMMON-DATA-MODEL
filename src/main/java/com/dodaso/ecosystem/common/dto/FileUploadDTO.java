@@ -22,16 +22,12 @@ public class FileUploadDTO extends BaseDTO implements Serializable {
   @Serial
   private static final long serialVersionUID = 1L;
 
-  // id is inherited from BaseDTO (getId()/setId()) -- redeclaring it here
-  // shadowed rather than reused it, meaning two separate "id" fields
-  // existed on this class in practice. Removed now; audit fields
-  // (createdBy/createdAt/updatedBy/updatedAt) are left as-is for now per
-  // instruction, to revisit once file upload itself is settled.
+  private Long id;
 
   private String sourceApp;
+  private Long companyId;
   private String ownerType;
   private Long ownerId;
-  private Long companyId;
   private String fileName;
   private String contentType;
   private Long fileSize;

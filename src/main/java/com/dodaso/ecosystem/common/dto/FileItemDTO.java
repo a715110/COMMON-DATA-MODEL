@@ -1,21 +1,24 @@
 package com.dodaso.ecosystem.common.dto;
 
+import java.io.Serial;
 import java.io.Serializable;
 import lombok.Getter;
 import lombok.Setter;
 
 /**
- * One file's raw bytes, as carried inside FileUploadRequestDTO from
- * elcm-ui (or any future caller) to common-service's FileStorageController.
- * Not persisted directly -- content is written to Azure and discarded;
- * only the resulting FileUploadDTO (id, blobUrl, etc.) is persisted/
- * returned. "content" serializes as a base64 JSON string via Jackson's
- * default byte[] handling -- no custom (de)serializer needed.
+ * Carries one raw file's bytes across the wire as part of a
+ * FileUploadRequestDTO. Not a persisted entity's DTO -- there is no
+ * FileItem table -- so this does NOT extend BaseDTO. Jackson serializes
+ * `content` as base64 automatically since the declared type is byte[].
  */
 @Getter
 @Setter
 public class FileItemDTO implements Serializable {
-    private String fileName;
-    private String contentType;
-    private byte[] content;
+
+  @Serial
+  private static final long serialVersionUID = 1L;
+
+  private String fileName;
+  private String contentType;
+  private byte[] content;
 }

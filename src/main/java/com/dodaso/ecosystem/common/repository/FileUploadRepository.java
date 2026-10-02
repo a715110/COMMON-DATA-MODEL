@@ -6,13 +6,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface FileUploadRepository extends JpaRepository<FileUpload, Long> {
 
-    /** Backs FileStorageController's "list files for a given owner" endpoint
-     * (e.g. ownerType="STAGED_DOCUMENT", ownerId=<elcm staged_document id>).
-     * companyId is included in the lookup, not just ownerType/ownerId --
-     * ownerId alone isn't guaranteed globally unique now that this table
-     * spans multiple companies (each company's own app schema may well
-     * reuse the same id ranges). activeInd=true only -- soft-deleted rows
-     * stay in the table but shouldn't show up here. */
+    /** Active (non-soft-deleted) files for one owner, scoped to its
+     * company -- the standard "list files attached to this record" query
+     * used by both ECWS (Comment tab / File Attachment tab) and ELCM. */
     List<FileUpload> findByCompanyIdAndOwnerTypeAndOwnerIdAndActiveIndTrue(
         Long companyId, String ownerType, Long ownerId);
 }

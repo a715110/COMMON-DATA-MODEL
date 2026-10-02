@@ -8,16 +8,13 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * DTO for the common FileThumbnail entity/table. Mirrors the JPA entity's
- * persisted columns; relationship fields are represented as nested DTOs
- * (suffixed "DTO") rather than the JPA entity types, per the
- * ecws-data-model / elcm-data-model convention. Instances are placed into
- * the matching FileThumbnailDTOContainer before being passed to/from the
- * service layer.
+ * DTO for the common DocumentConversion entity/table. Same shape/
+ * convention as FileThumbnailDTO -- see that class and DocumentConversion
+ * entity's Javadoc for the full feature context.
  */
 @Getter
 @Setter
-public class FileThumbnailDTO extends BaseDTO implements Serializable {
+public class DocumentConversionDTO extends BaseDTO implements Serializable {
 
   @Serial
   private static final long serialVersionUID = 1L;
@@ -25,12 +22,11 @@ public class FileThumbnailDTO extends BaseDTO implements Serializable {
   private Long id;
 
   private FileUploadDTO fileUploadDTO;
-  private LkpThumbnailStatusDTO statusDTO;
+  private LkpDocumentConversionStatusDTO statusDTO;
   private String blobContainer;
   private String blobPath;
   private String blobUrl;
-  private Integer widthPx;
-  private Integer heightPx;
+  private Integer pageCount;
   private Integer attemptCount;
   private String lastErrorMessage;
   private LocalDateTime requestedAt;

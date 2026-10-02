@@ -6,9 +6,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface LkpThumbnailStatusRepository extends JpaRepository<LkpThumbnailStatus, Long> {
 
-    /** Looks up a status row by its seed code (PENDING/PROCESSING/COMPLETED/
-     * FAILED per this entity's class Javadoc) rather than a hardcoded id,
-     * since ids are DB-generated and not guaranteed stable across
-     * environments. */
+    /**
+     * Looks up a status row by its seeded code (PENDING/PROCESSING/COMPLETED/
+     * FAILED). Codes, not ids, are what application code should ever branch
+     * on -- ids are DB-generated and not guaranteed stable across
+     * environments.
+     */
     Optional<LkpThumbnailStatus> findByCode(String code);
 }

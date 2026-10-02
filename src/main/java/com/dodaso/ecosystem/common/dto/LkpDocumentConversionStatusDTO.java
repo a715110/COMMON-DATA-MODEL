@@ -8,16 +8,12 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * DTO for the common LkpThumbnailStatus entity/table. Mirrors the JPA
- * entity's persisted columns; relationship fields are represented as
- * nested DTOs (suffixed "DTO") rather than the JPA entity types, per the
- * ecws-data-model / elcm-data-model convention. Instances are placed into
- * the matching LkpThumbnailStatusDTOContainer before being passed to/from
- * the service layer.
+ * DTO for the common LkpDocumentConversionStatus entity/table. Same
+ * shape/convention as LkpThumbnailStatusDTO.
  */
 @Getter
 @Setter
-public class LkpThumbnailStatusDTO extends BaseDTO implements Serializable {
+public class LkpDocumentConversionStatusDTO extends BaseDTO implements Serializable {
 
   @Serial
   private static final long serialVersionUID = 1L;
