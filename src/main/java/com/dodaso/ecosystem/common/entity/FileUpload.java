@@ -5,6 +5,11 @@ import java.time.LocalDateTime;
 import java.io.Serializable;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 /**
  * Maps to common.file_upload -- generated from the authoritative
@@ -21,6 +26,7 @@ import lombok.Setter;
  * not the application.
  */
 @Entity
+@EntityListeners(AuditingEntityListener.class)
 @Table(name = "file_upload")
 @Getter
 @Setter
@@ -67,15 +73,19 @@ public class FileUpload implements Serializable {
     @Column(name = "active_ind", nullable = false)
     private Boolean activeInd;
 
-    @Column(name = "created_by", nullable = false, length = 255)
+    @CreatedBy
+    @Column(name = "created_by", nullable = false, updatable = false, length = 255)
     private String createdBy;
 
-    @Column(name = "created_at", nullable = false, insertable = false, updatable = false)
+    @CreatedDate
+    @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
+    @LastModifiedBy
     @Column(name = "updated_by", length = 255)
     private String updatedBy;
 
-    @Column(name = "updated_at", nullable = false, insertable = false, updatable = false)
+    @LastModifiedDate
+    @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
 }
