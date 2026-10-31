@@ -27,12 +27,9 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
  * own and would never need a row here. A FileUpload with no matching row
  * here was either never eligible, or predates this feature.
  *
- * pageCount is nullable and currently unused by any caller -- kept for
- * parity with the kind of metadata a PDF viewer might eventually want
- * (page count shown in a UI), not because anything populates it yet;
- * Gotenberg's convert response is just raw PDF bytes, so getting a page
- * count would mean a second pass (e.g. PDFBox) over the result, not
- * implemented in this first increment.
+ * pageCount is the converted PDF's page count, counted with PDFBox when
+ * the conversion completes (DocumentConversionService). It stays null when
+ * the PDF can't be read, and for rows completed before it was filled in.
  */
 @Entity
 @EntityListeners(AuditingEntityListener.class)
